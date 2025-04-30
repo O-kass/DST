@@ -14,7 +14,9 @@ public class GreatestCommonDiv{
 
         while (q != 0) {
             //To be completed
-
+            int previousP = p;
+            p = q;
+            q = previousP % q;
         }
         return p;
     }
@@ -25,9 +27,9 @@ public class GreatestCommonDiv{
         int q = Integer.parseInt("68");
         //Use p and q as arguments in the recursive and iterative version of greatestCD
         int d  = greatestCD(p,q);
-        //int d2 = greatestCDIter(p,q);
+        int d2 = greatestCDIter(p,q);
         //Print out the results
         System.out.println("greatestCD(" + p + ", " + q + ") = " + d);
-        //System.out.println("greatestCDIter(" + p + ", " + q + ") = " + d2);
+        System.out.println("greatestCDIter(" + p + ", " + q + ") = " + d2);
     }
 }
