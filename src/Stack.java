@@ -7,40 +7,54 @@
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-public interface Stack<E> {
+public class Stack<E> {
 
     /**
      * Returns the number of elements in the stack.
      *
      * @return number of elements in the stack
      */
-    int size();
+    public int size(){
+        int hello = 5;
+        return hello;
+    }
 
     /**
      * Tests whether the stack is empty.
      *
      * @return true if the stack is empty, false otherwise
      */
-    boolean isEmpty();
+    public boolean isEmpty(){
+        boolean b = false;
+        return b;
+    };
 
     /**
      * Inserts an element at the top of the stack.
      *
      * @param e the element to be inserted
      */
-    void push(E e);
+    public void push(E e){
+
+    };
 
     /**
      * Returns, but does not remove, the element at the top of the stack.
      *
      * @return top element in the stack (or null if empty)
      */
-    E top();
+    public E top(){
+        E e = null;
+        return e;
+    };
 
     /**
      * Removes and returns the top element from the stack.
      *
      * @return element removed (or null if empty)
      */
-    E pop();
+    public E pop(){
+        E e = null;
+        return e;
+    };
 }
