@@ -7,16 +7,26 @@
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-public class Stack<E> {
+public class ArrayStack<E> {
 
+    public static final int CAPACITY = 1000; // default array capacity
+    private E[] data; // generic array used for storage
+    private int t = -1; // index of the top element in stack
+
+    public ArrayStack() {
+        this(CAPACITY);
+    }
+
+    public ArrayStack(int capacity) { // constructs stack with given capacity
+        data = (E[]) new Object[capacity]; // safe cast; compiler may give warning
+    }
     /**
      * Returns the number of elements in the stack.
      *
      * @return number of elements in the stack
      */
     public int size(){
-        int hello = 5;
-        return hello;
+        return (t + 1);
     }
 
     /**
@@ -25,8 +35,7 @@ public class Stack<E> {
      * @return true if the stack is empty, false otherwise
      */
     public boolean isEmpty(){
-        boolean b = false;
-        return b;
+        return (t == -1);
     };
 
     /**
@@ -34,8 +43,9 @@ public class Stack<E> {
      *
      * @param e the element to be inserted
      */
-    public void push(E e){
-
+    public void push(E e) throws StackOverflowError{
+        t = t + 1;
+        data[t] =  e;
     };
 
     /**
@@ -44,8 +54,7 @@ public class Stack<E> {
      * @return top element in the stack (or null if empty)
      */
     public E top(){
-        E e = null;
-        return e;
+        return data[t];
     };
 
     /**
@@ -54,7 +63,14 @@ public class Stack<E> {
      * @return element removed (or null if empty)
      */
     public E pop(){
-        E e = null;
-        return e;
+       if(isEmpty()){
+           return null;
+       }
+       else {
+           E element = data[t];
+           data[t] = null;
+           t = t - 1;
+           return element;
+       }
     };
 }
