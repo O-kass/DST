@@ -12,7 +12,7 @@ public class Fib {
                 return ((fib((k+1)/2) * fib((k+1)/2)) + ((fib((k-1)/2)) * fib((k-1)/2)));
             }
             else{
-                return ((fib(k/2 + 1)) + (fib(k/2  - 1))) * fib(k/2);
+                return ((fib(k/2 + 1)) + (fib(k/2 - 1))) * fib(k/2);
             }
         }
     }
