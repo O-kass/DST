@@ -18,7 +18,7 @@ public class ArrayStack<E> {
     }
 
     public ArrayStack(int capacity) { // constructs stack with given capacity
-        data = (E[]) new Object[capacity]; // safe cast; compiler may give warning
+        data = (E[]) new Object[capacity]; // safe cast; compiler may give warning(does)
     }
     /**
      * Returns the number of elements in the stack.
