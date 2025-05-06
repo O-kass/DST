@@ -5,18 +5,6 @@ import java.util.List;
 
 public abstract class AbstractTree<E> implements Tree<E> {
 
-
-    public interface Position<E> {
-
-        /**
-         * Returns the element stored at this position.
-         *
-         * @return An element
-         * @throws IllegalStateException if position no longer valid
-         */
-        E getElement() throws IllegalStateException;
-    }
-
     @Override
     public boolean isInternal(Position<E> position) throws IllegalStateException {
         return (numChildren(position) > 0);
@@ -151,24 +139,6 @@ public abstract class AbstractTree<E> implements Tree<E> {
      *
      * @return
      */
-    public Iterable<Position<E>> breathFirst() {
-        List<Position<E>> snapshot = new ArrayList<>();
 
-        if (!isEmpty()) {
-            Queue<Position<E>> fringe = new LinkedQueue<>();
-            fringe.enqueue(root());
-
-            while (!fringe.isEmpty()) {
-                Position<E> position = fringe.dequeue();
-                snapshot.add(position);
-
-                for (Position<E> child : children(position)) {
-                    fringe.enqueue(child);
-                }
-            }
-        }
-
-        return snapshot;
-    }
 }
 
