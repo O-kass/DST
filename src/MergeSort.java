@@ -18,7 +18,25 @@ public class MergeSort {
      * @param S
      * @param comp
      */
-    public static <K> void mergeSort(K[] S, Comparator<K> comp) {     // merge sorted halves back into original
+    public static <K> void mergeSort(K[] S, Comparator<K> comp) {
+        int max = S.length-1;
+        int min = 0;
+        int mid = (min + max)/2;
+        K[] S1 = (K[]) new Object[mid];
+        K[] S2 = (K[]) new Object[mid];
+
+        if(min < max) {
+            for (int i = min; i <= mid; i++) {
+                S1[i] = S[i];
+            }
+            for (int i = mid + 1; i <= max; i++) {
+                S2[i] = S[i];
+            }
+            mergeSort(S1, comp);
+            mergeSort(S2, comp);
+        }
+        merge(S1, S2, S, comp);
+
     }
 
     /**
@@ -31,6 +49,23 @@ public class MergeSort {
      * @param comp
      */
     public static <K> void merge(K[] S1, K[] S2, K[] S, Comparator<K> comp) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        if (comp.compare(S1[i], S2[j]) <= 0){
+            S[k++] = S1[i++];
+        }
+        else{
+            S[k++] = S2[j++];
+        }
+        while(i < S1.length){
+            S[k++] = S1[i++];
+        }
+        while(j < S2.length){
+            S[k++] = S2[j++];
+        }
+
     }
 
 
