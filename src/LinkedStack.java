@@ -48,7 +48,7 @@ public class LinkedStack<T> {
     public T peek() {
         // Add your code here
         if(isEmpty()){
-            throw new EmptyStackException("STACK IS EMPTY");
+            throw new EmptyStackException();
         }
         else{
             return top.data;
