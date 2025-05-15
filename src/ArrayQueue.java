@@ -43,7 +43,8 @@ public class ArrayQueue<E>{
         }
         else{
             int available = (f + sz) % data.length;
-
+            data[available] = e;
+            sz++;
         }
     }
 
